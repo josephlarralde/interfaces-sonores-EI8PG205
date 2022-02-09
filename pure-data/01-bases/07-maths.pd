@@ -1,0 +1,87 @@
+#N canvas 9 23 860 590 12;
+#X obj 32 472 expr sin(6.283 * $f1);
+#X floatatom 32 447 5 0 0 0 - - - 0;
+#X floatatom 32 497 5 0 0 0 - - - 0;
+#X floatatom 32 198 5 0 0 0 - - - 0;
+#X floatatom 32 247 10 0 0 0 - - - 0;
+#X obj 32 108 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 32 134 == 0;
+#X obj 32 162 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 32 222 log 2;
+#X obj 32 340 * 2;
+#X obj 32 366 + 1;
+#X obj 109 353 expr $f1 * 2 + 1;
+#X text 71 353 <=>;
+#X floatatom 32 289 5 0 0 0 - - - 0;
+#X floatatom 109 402 5 0 0 0 - - - 0;
+#X floatatom 32 402 5 0 0 0 - - - 0;
+#X text 250 16 la plupart des fonctions mathématiques et des opérateurs
+logiques existent dans leur version audio et non audio sous la forme
+d'objets dédiés ou sont accessibles depuis les objets [expr] et [expr~]
+:;
+#X text 71 134 < équivalent de l'opérateur logique "!";
+#X obj 397 96 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 397 549 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 500 169 +~;
+#X obj 537 111 sig~ 1;
+#X obj 468 111 sig~ 2;
+#X obj 500 196 snapshot~;
+#X floatatom 500 223 5 0 0 0 - - - 0;
+#X obj 474 200 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 684 111 sig~ 1;
+#X obj 632 111 sig~ 2;
+#X obj 664 196 snapshot~;
+#X floatatom 664 223 5 0 0 0 - - - 0;
+#X obj 640 200 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 570 167 <=>;
+#X text 429 249 NB : additionner n signaux audio équivaut à tous
+les brancher dans la même entrée car mixer des signaux audio équivaut
+à les additionner;
+#X obj 522 472 snapshot~;
+#X obj 538 397 loadbang;
+#X obj 538 420 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 522 497 5 0 0 0 - - - 0;
+#X obj 448 328 osc~ 2;
+#X obj 448 473 snapshot~;
+#X floatatom 448 498 5 0 0 0 - - - 0;
+#X text 431 531 transformation d'un signal sinusoidal en signal carré
+;
+#X obj 522 374 expr~ if($v1 > 0 \, 1 \, -1);
+#X obj 538 439 metro 50;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 3 0 8 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 8 0 4 0;
+#X connect 9 0 10 0;
+#X connect 10 0 15 0;
+#X connect 11 0 14 0;
+#X connect 13 0 9 0;
+#X connect 13 0 11 0;
+#X connect 18 0 19 0;
+#X connect 20 0 23 0;
+#X connect 21 0 20 1;
+#X connect 22 0 20 0;
+#X connect 23 0 24 0;
+#X connect 25 0 23 0;
+#X connect 26 0 28 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 30 0 28 0;
+#X connect 33 0 36 0;
+#X connect 34 0 35 0;
+#X connect 35 0 42 0;
+#X connect 37 0 38 0;
+#X connect 37 0 41 0;
+#X connect 38 0 39 0;
+#X connect 41 0 33 0;
+#X connect 42 0 33 0;
+#X connect 42 0 38 0;

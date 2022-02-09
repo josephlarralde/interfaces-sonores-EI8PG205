@@ -1,0 +1,129 @@
+#N canvas 0 23 1196 746 12;
+#X obj 70 265 bng 15 250 50 0 empty empty empty 17 7 0 10 #00ff04 #000000
+#000000;
+#X obj 37 234 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X floatatom 52 211 5 0 0 0 - - - 0;
+#X msg 101 218 a b c;
+#X obj 696 238 tgl 15 0 empty empty empty 17 7 0 10 #00faff #000000
+#000000 0 1;
+#X floatatom 696 262 5 0 0 0 - - - 0;
+#X floatatom 703 203 5 0 0 0 - - - 0;
+#X obj 665 211 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 745 226 l'objet toggle a deux états : on (1) et off (0);
+#X floatatom 55 420 5 0 0 0 - - - 0;
+#X text 745 251 cliquer sur un toggle ou lui envoyer un bang bascule
+son état et envoie la valeur correspondant au nouvel état;
+#X symbolatom 76 632 10 0 0 0 - - - 0;
+#X msg 37 367 3.14;
+#X floatatom 93 357 5 0 0 0 - - - 0;
+#X obj 611 26 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 611 699 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 745 289 un toggle peut également recevoir n'importe quelle
+valeur numérique \, auquel cas il transmet cette valeur et met son
+état interne à jour en conséquence (0 si la valeur est nulle \,
+1 sinon);
+#X obj 687 394 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 #e3c6ff
+#000000 #000000 0 1;
+#X obj 101 387 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X msg 36 593 3.14;
+#X obj 101 608 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X floatatom 701 361 5 0 0 0 - - - 0;
+#X floatatom 687 532 5 0 0 0 - - - 0;
+#X obj 667 353 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 744 386 les objets slider permettent la visualisation et l'envoi
+de valeurs numériques \, l'intervalle qu'ils couvrent est déterminé
+depuis leur éditeur de propriétés (Clic droit > Properties sur l'objet)
+;
+#X text 743 450 envoyer une valeur numérique à un slider met à jour
+sa valeur interne et son affichage \, et transmet cette valeur par
+sa sortie;
+#X text 688 637 pour en savoir plus sur les objets gui \, les instancier
+depuis le menu Put > nom_de_l_objet \, et consulter les patchs d'aide
+correspondants;
+#X obj 34 57 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X floatatom 60 36 5 0 0 0 - - - 0;
+#X msg 56 86 1 2 3 soleil;
+#X msg 41 128 \$4 vert \$3 \$1 \$1;
+#X msg 75 61 whatever;
+#X listbox 687 115 20 0 0 0 - - - 0;
+#X msg 723 47 list a b c;
+#X msg 672 40 d e f;
+#X msg 657 65 1 2 3;
+#X text 172 125 il permet également de réordonner les éléments
+d'un message entrant et de les intégrer à un nouveau message : \$1
+sera substitué par le premier élément du message entrant \, \$2
+par le deuxième \, etc;
+#X obj 51 162 print message;
+#X obj 78 299 print bang;
+#X obj 62 666 print symbol;
+#X obj 48 458 print number;
+#X obj 687 145 print list;
+#X text 160 619 cliquer sur un objet gui symbol lui donne le focus
+au clavier \, saisir une chaîne de caractères au clavier puis taper
+sur entrée met à jour sa valeur avec la valeur saisie \, cliquer
+en dehors sans taper sur entrée annule la saisie en cours;
+#X text 147 343 cliquer sur un objet gui number et glisser vers le
+haut ou le bas incrémente ou décrémente respectivement sa valeur
+par pas de 1 \, maintenir la touche shift puis cliquer et glisser incrémente
+ou décrémente sa valeur par pas de 0.01;
+#X text 147 410 cliquer sur un objet gui number lui donne le focus
+au clavier \, saisir une valeur numérique au clavier puis taper sur
+entrée met à jour sa valeur avec la valeur saisie \, cliquer en dehors
+sans taper sur entrée annule la saisie en cours;
+#X text 104 250 cliquer sur un objet gui bang ou lui envoyer n'importe
+quel message le fait clignoter et envoyer un message de type bang;
+#X text 158 68 l'objet gui message permet de définir un message prédéterminé
+et de le propager par sa sortie en cliquant dessus ou en lui envoyant
+n'importe quel message;
+#X text 148 487 envoyer une valeur numérique à un objet gui number
+met également à jour sa valeur \, lui envoyer un bang lui fait renvoyer
+sa valeur actuelle;
+#X msg 94 584 symbol un_symbole;
+#X msg 70 558 pas_un_symbole;
+#X text 737 75 l'objet gui list fonctionne de la même manière que
+l'objet symbol \, mais pour les listes;
+#X obj 643 93 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X text 744 501 l'intervalle par défaut d'un slider est [0 \, 127]
+pour des raisons historiques (intervalle d'une valeur MIDI CC);
+#X text 688 587 les objets gui présentés dans ce patch sont les plus
+couramment utilisés (à part l'objet array qui est introduit plus
+tard);
+#X connect 0 0 38 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 9 0 40 0;
+#X connect 11 0 39 0;
+#X connect 12 0 9 0;
+#X connect 13 0 9 0;
+#X connect 14 0 15 0;
+#X connect 17 0 22 0;
+#X connect 18 0 9 0;
+#X connect 19 0 11 0;
+#X connect 20 0 11 0;
+#X connect 21 0 17 0;
+#X connect 23 0 17 0;
+#X connect 27 0 29 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 37 0;
+#X connect 31 0 29 0;
+#X connect 32 0 41 0;
+#X connect 33 0 32 0;
+#X connect 34 0 32 0;
+#X connect 35 0 32 0;
+#X connect 48 0 11 0;
+#X connect 49 0 11 0;
+#X connect 51 0 32 0;

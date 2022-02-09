@@ -1,0 +1,75 @@
+#N canvas 6 23 950 542 12;
+#X obj 268 202 ../utilities/dirac~;
+#X obj 268 177 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 247 243 dac~ 1 2;
+#X obj 95 202 *~;
+#X obj 95 113 osc~ 440;
+#X obj 95 137 *~ 0.1;
+#X obj 113 177 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 71 243 dac~ 1 2;
+#X msg 76 71 440;
+#X msg 113 71 880;
+#X text 35 325 laisser le toggle activé et cliquer alternativement
+sur les messages 440 et 880 pour changer la fréquence de l'oscillateur
+: qu'entend-on ?;
+#X text 35 286 cliquer sur le toggle à plusieurs reprises pour laisser
+passer ou couper le son : qu'entend-on ?;
+#X text 183 203 -->;
+#X obj 471 16 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 471 502 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 25 395 EXPLICATION :;
+#X text 499 82 SOLUTION :;
+#X text 25 26 PROBLEMATIQUE :;
+#X obj 688 322 *~;
+#X obj 652 283 *~ 0.1;
+#X obj 664 363 dac~ 1 2;
+#X obj 731 284 line~;
+#X msg 731 260 \$1 5;
+#X obj 731 240 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 652 208 \$1 5;
+#X msg 638 174 440;
+#X msg 675 174 880;
+#X obj 652 232 line~ 440;
+#X obj 652 259 osc~;
+#X text 499 104 utiliser l'objet [line~] qui génère un signal interpolé
+sur une courte durée (une "rampe") et permet de transformer un flux
+de données non audio en flux audio "lissé" :;
+#X text 25 416 il ne faut JAMAIS (sauf si c'est intentionnel) modifier
+un processus audio avec des données non audio car cela crée généralement
+une discontinuité dans le signal (sa dérivée n'est plus continue)
+\, le son parasite perçu est assimilable à une impulsion de dirac
+dont le spectre est "blanc" (il contient toutes les fréquences à
+amplitudes égales);
+#X text 24 324 *;
+#X text 24 286 *;
+#X text 504 395 NB : ici nous générons des rampes de 5 ms et nous
+constatons à l'oreille que le résultat est satisfaisant \, cette
+durée doit parfois être ajustée en fonction du type de processus
+audio sur lequel on souhaite agir;
+#X connect 0 0 2 0;
+#X connect 0 0 2 1;
+#X connect 1 0 0 0;
+#X connect 3 0 7 0;
+#X connect 3 0 7 1;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 6 0 3 1;
+#X connect 8 0 4 0;
+#X connect 9 0 4 0;
+#X connect 13 0 14 0;
+#X connect 18 0 20 0;
+#X connect 18 0 20 1;
+#X connect 19 0 18 0;
+#X connect 21 0 18 1;
+#X connect 22 0 21 0;
+#X connect 23 0 22 0;
+#X connect 24 0 27 0;
+#X connect 25 0 24 0;
+#X connect 26 0 24 0;
+#X connect 27 0 28 0;
+#X connect 28 0 19 0;

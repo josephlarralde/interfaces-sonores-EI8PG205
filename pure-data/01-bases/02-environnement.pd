@@ -1,0 +1,55 @@
+#N canvas 0 23 496 791 12;
+#X text 35 250 l'item de menu Edit > Edit Mode (ou le raccourci clavier
+correspondant Cmd/Ctrl + E) permet de basculer du mode "édition" au
+mode "utilisation" :;
+#X text 47 299 c'est dans le mode édition que l'on crée \, déplace
+\, connecte \, et supprime des objets;
+#X text 47 327 le mode utilisation interdit toute modification du patch
+et permet d'utiliser les objets gui comme l'interface graphique d'un
+logiciel "classique";
+#X text 49 167 de définir des options de démarrage;
+#X text 49 200 de sélectionner et configurer l'interface MIDI;
+#X text 49 184 de sélectionner et configurer l'interface audionumérique
+;
+#X text 35 327 *;
+#X text 36 124 *;
+#X text 36 167 *;
+#X text 36 183 *;
+#X text 36 199 *;
+#X text 49 124 de spécifier des paths dans lesquels chercher automatiquement
+certains fichiers tels que des patchs utilisateur \, ou des 3rd-party
+plugins (a.k.a externals);
+#X text 35 299 *;
+#X text 34 104 les préférences de Pure Data permettent :;
+#X text 34 402 le menu Put (ou les raccourcis claviers qui y figurent)
+permet d'instancier toutes sortes d'objets \, dont notamment ceux de
+type "Object" que l'on nommera tout simplement "objets" ou "objets
+normaux" \, les autres étant tous des objets graphiques que l'on nommera
+"objets gui";
+#X obj 54 515 phasor~;
+#X obj 127 512 random 10;
+#X obj 207 521 expr~ $v1 * 10;
+#X obj 322 513 moses;
+#X text 369 518 ...;
+#X floatatom 45 576 5 0 0 0 - - - 0;
+#X obj 96 586 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 128 574 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 277 571 hradio 15 1 0 8 empty empty empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0;
+#X text 35 610 tous ces objets \, quels qu'ils soient \, sont documentés
+avec des patchs d'aide accessibles en faisant Clic droit > Help sur
+l'objet en question;
+#X text 34 659 les objets gui sont configurables grâce à un éditeur
+de propriétés accessible en faisant Clic droit > Properties sur l'objet
+en question;
+#X text 35 710 de la documentation supplémentaire et des exemples
+sont disponibles depuis le menu Help;
+#X text 403 565 ...;
+#X text 35 53 un fichier Pure Data est appelé un "patch" \, ou "patcher"
+\, en référence aux patchs des premiers synthétiseurs analogiques
+;
+#X text 134 25 QUELQUES INFORMATIONS UTILES :;
+#X text 35 546 exemples d'objets gui :;
+#X text 34 480 exemples d'objets normaux :;

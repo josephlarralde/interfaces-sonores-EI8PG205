@@ -1,0 +1,133 @@
+#N canvas 0 23 535 580 10;
+#X obj 114 261 *~;
+#X obj 169 212 line~;
+#X msg 169 191 \$1 10;
+#X obj 172 171 hsl 128 15 0 0.5 0 0 empty empty volume -2 -8 0 10 -262144
+-1 -1 0 0;
+#X obj 114 283 *~ 0.1;
+#X obj 114 313 dac~ 1 2;
+#X floatatom 85 55 5 0 0 0 - - -;
+#X floatatom 159 54 5 0 0 0 - - -;
+#X obj 85 80 osc~ 440;
+#N canvas 411 149 517 425 equivalence-de-simpson 0;
+#X obj 298 57 osc~ 440;
+#X obj 327 238 *~;
+#X obj 342 219 line~;
+#X msg 342 198 \$1 10;
+#X obj 345 178 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 0;
+#X obj 327 107 *~;
+#X obj 372 57 osc~ 1;
+#X obj 83 238 *~;
+#X obj 98 219 line~;
+#X msg 98 198 \$1 10;
+#X obj 101 178 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 0;
+#X obj 83 107 +~;
+#X obj 54 57 osc~ 439;
+#X obj 128 57 osc~ 441;
+#X text 206 102 <=>;
+#X obj 83 260 *~ 0.1;
+#X obj 83 290 dac~ 1 2;
+#X obj 327 290 dac~ 1 2;
+#X obj 327 260 *~ 0.1;
+#X text 81 335 formule trigonométrique de simpson :;
+#X obj 327 130 *~ 2;
+#X text 81 350 cos(w1) + cos(w2) = 2 * cos((w1+w2)/2) * cos((w1-w2)/2)
+;
+#X connect 0 0 5 0;
+#X connect 1 0 18 0;
+#X connect 2 0 1 1;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 20 0;
+#X connect 6 0 5 1;
+#X connect 7 0 15 0;
+#X connect 8 0 7 1;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 11 0 7 0;
+#X connect 12 0 11 0;
+#X connect 13 0 11 1;
+#X connect 15 0 16 0;
+#X connect 15 0 16 1;
+#X connect 18 0 17 0;
+#X connect 18 0 17 1;
+#X connect 20 0 1 0;
+#X restore 238 263 pd equivalence-de-simpson;
+#N canvas 0 23 490 468 battements-binauraux 0;
+#X obj 129 213 osc~;
+#X obj 129 271 *~;
+#X obj 174 213 osc~;
+#X obj 174 271 *~;
+#X obj 129 313 dac~ 1 2;
+#X obj 226 233 line~;
+#X msg 226 212 \$1 10;
+#X obj 229 192 hsl 128 15 0 0.5 0 0 empty empty volume -2 -8 0 10 -262144
+-1 -1 0 0;
+#X floatatom 90 92 5 0 0 2 frequence_audible - -;
+#X floatatom 216 92 5 0 0 2 frequence_de_battement - -;
+#X obj 90 109 t f f;
+#X obj 129 192 +;
+#X obj 174 192 -;
+#X obj 216 109 * 0.5;
+#X obj 216 127 t b f f;
+#X obj 129 292 *~ 0.1;
+#X obj 174 292 *~ 0.1;
+#X obj 90 32 loadbang;
+#X msg 90 50 440;
+#X obj 216 32 loadbang;
+#X msg 216 50 5;
+#X text 63 353 exemple à écouter au casque :;
+#X text 63 376 même si les battements ne se produisent pas dans l'air
+\, le cerveau les reconstruit lorsque deux fréquences proches sont
+jouées chacune dans une oreille différente;
+#X connect 0 0 1 0;
+#X connect 1 0 15 0;
+#X connect 2 0 3 0;
+#X connect 3 0 16 0;
+#X connect 5 0 1 1;
+#X connect 5 0 3 1;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 10 0;
+#X connect 9 0 13 0;
+#X connect 10 0 11 0;
+#X connect 10 1 12 0;
+#X connect 11 0 0 0;
+#X connect 12 0 2 0;
+#X connect 13 0 14 0;
+#X connect 14 0 11 0;
+#X connect 14 0 12 0;
+#X connect 14 1 11 1;
+#X connect 14 2 12 1;
+#X connect 15 0 4 0;
+#X connect 16 0 4 1;
+#X connect 17 0 18 0;
+#X connect 18 0 8 0;
+#X connect 19 0 20 0;
+#X connect 20 0 9 0;
+#X restore 238 284 pd battements-binauraux;
+#X obj 114 130 *~;
+#X obj 159 80 osc~ 5;
+#X text 67 364 la technique de modulation d'amplitude consiste à multiplier
+un signal par une sinusoide de fréquence f_mod;
+#X text 67 475 cette dualité perceptive est décrite par la formule
+trigonométrique de simson;
+#X text 67 434 lorsque f_mod augmente \, le spectre du signal modulé
+commence à se dédoubler \, chaque double se décalant respectivement
+de -f_mod et de f_mod \, et le résultat devient inharmonique;
+#X text 67 393 lorsque f_mod est faible \, cela a pour effet de faire
+varier l'amplitude perçue du signal à la manière d'un trémolo \,
+on appelle ce phénomène des battements;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 6 0 8 0;
+#X connect 7 0 12 0;
+#X connect 8 0 11 0;
+#X connect 11 0 0 0;
+#X connect 12 0 11 1;

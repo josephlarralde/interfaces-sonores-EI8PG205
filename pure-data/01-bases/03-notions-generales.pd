@@ -1,0 +1,126 @@
+#N canvas 0 23 1004 763 12;
+#X obj 40 309 osc~ 440;
+#X floatatom 40 283 5 0 0 0 - - - 0;
+#X obj 40 430 metro 1000;
+#X obj 40 407 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 40 456 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X floatatom 107 405 5 0 0 0 - - - 0;
+#X text 110 309 un objet [osc~] initialisé avec l'argument 440;
+#X text 121 430 un objet [metro] initialisé avec l'argument 1000;
+#X text 36 251 quelques exemples :;
+#X text 39 28 les objets "normaux" se distinguent en deux familles
+:;
+#X floatatom 39 564 5 0 0 0 - - - 0;
+#X floatatom 80 564 5 0 0 0 - - - 0;
+#X text 53 101 ceux dont le nom ne se termine pas par "~" qui ne traitent
+aucun signal audio;
+#X text 37 195 ces arguments initialisent l'état des objets qui pourra
+être parfois modifié par la suite via l'envoi de messages dans certaines
+entrées;
+#X text 37 143 tous les objets "normaux" sont instanciés par leur
+nom \, suivi d'un ou plusieurs arguments optionnels ayant tous des
+valeurs par défaut s'ils ne sont pas renseignés;
+#X text 36 696 ces arguments ne peuvent pas être modifiés par la
+suite;
+#X obj 501 21 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 501 720 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 537 388 la plupart des objets non audio ont une entrée "chaude"
+(l'entrée la plus à gauche) \, et des entrées "froides" (toutes
+les autres entrées);
+#X text 539 438 l'envoi d'une valeur dans une entrée "chaude" met
+à jour l'état de l'objet et provoque l'exécution de son algorithme
+interne suivi de la propagation du résultat via l'une ou plusieurs
+de ses sorties \, alors que l'envoi d'une valeur dans une entrée "froide"
+met seulement à jour l'état interne de l'objet et n'induit pas de
+propagation de données;
+#X floatatom 596 592 5 0 0 0 - - - 0;
+#X floatatom 673 598 5 0 0 0 - - - 0;
+#X floatatom 637 680 5 0 0 0 - - - 0;
+#X obj 637 651 *;
+#X obj 819 650 f;
+#X floatatom 860 612 5 0 0 0 - - - 0;
+#X obj 771 622 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X floatatom 781 592 5 0 0 0 - - - 0;
+#X obj 589 623 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X floatatom 819 674 5 0 0 0 - - - 0;
+#X text 783 709 une variable locale;
+#X text 567 710 une simple multiplication;
+#X text 539 532 un message "bang" dans l'entrée "chaude" provoquera
+généralement l'exécution de l'algorithme interne avec les dernières
+valeurs reçues et la propagation du résultat;
+#X text 543 28 Pure Data manipule 2 types de signaux :;
+#X text 558 52 audio : flux continu de valeurs de type flottant 32
+bits \, à une fréquence d’échantillonnage déterminée globalement
+\, traité par paquets de taille Block size (voir Pd > Preferences
+> Audio);
+#X obj 551 236 osc~ 440;
+#X obj 577 300 *~;
+#X obj 618 250 osc~ 1;
+#X text 610 282 < fils audio (plus épais);
+#X obj 828 306 +;
+#X text 861 281 < fils message;
+#X floatatom 828 333 5 0 0 0 - - - 0;
+#X obj 577 324 snapshot~;
+#X floatatom 577 348 5 0 0 0 - - - 0;
+#X obj 556 327 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X floatatom 806 252 5 0 0 0 - - - 0;
+#X floatatom 856 246 5 0 0 0 - - - 0;
+#X text 558 116 messages : évènements ponctuels pouvant se produire
+au maximum 1 fois par Block size \, de l’un des types suivants :
+bang \, float \, symbol \, list ou message générique;
+#X obj 39 596 pack f f s;
+#X symbolatom 122 565 10 0 0 0 - - - 0;
+#X text 123 596 un objet [pack] avec trois arguments "typants";
+#X text 36 648 l'objet [pack] est instancié avec ses 2 premières
+entrées acceptant des valeurs numériques (arguments f) \, et sa 3ème
+entrée acceptant un symbole (argument s);
+#X text 41 50 *;
+#X text 40 101 *;
+#X text 54 50 ceux dont le nom se termine par "~" qui acceptent ou
+génèrent des signaux audio \, ou ont quelque chose à voir avec le
+moteur audio de Pure Data;
+#X obj 39 622 print;
+#X text 36 476 dans l'état "on" (activé par le toggle branché dans
+l'entrée de gauche) \, l'objet [metro] émettra un "bang" toutes les
+1000 ms jusqu'à ce qu'on modifie cette valeur en envoyant une nouvelle
+valeur dans son entrée de droite;
+#X text 36 336 l'objet [osc~] générera un signal audio sinusoidal
+à 440 Hz jusqu'à ce qu'on modifie sa valeur initiale en envoyant
+une nouvelle valeur de fréquence dans son entrée de gauche;
+#X text 544 52 *;
+#X text 544 116 *;
+#X text 544 168 chacun de ces 2 types a son type dédié d'entrée/sortie
+et de fil pour les relier (certaines entrées acceptent toutefois les
+2 types de signaux);
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 5 0 2 1;
+#X connect 10 0 48 0;
+#X connect 11 0 48 1;
+#X connect 16 0 17 0;
+#X connect 20 0 23 0;
+#X connect 21 0 23 1;
+#X connect 23 0 22 0;
+#X connect 24 0 29 0;
+#X connect 25 0 24 1;
+#X connect 26 0 24 0;
+#X connect 27 0 24 0;
+#X connect 28 0 23 0;
+#X connect 35 0 36 0;
+#X connect 36 0 42 0;
+#X connect 37 0 36 1;
+#X connect 39 0 41 0;
+#X connect 42 0 43 0;
+#X connect 44 0 42 0;
+#X connect 45 0 39 0;
+#X connect 46 0 39 1;
+#X connect 48 0 55 0;
+#X connect 49 0 48 2;

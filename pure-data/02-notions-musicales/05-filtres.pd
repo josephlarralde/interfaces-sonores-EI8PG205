@@ -1,0 +1,174 @@
+#N canvas 1 23 1030 807 12;
+#X text 38 26 les filtres sont un composant essentiel de la musique
+électronique \, qu'ils soient utilisés dans le design des sources
+sonores \, ou comme simples effets.;
+#X text 38 79 Pure Data en propose deux types : des filtres bas-niveau
+permettant des conceptions avancées pour les experts en traitement
+du signal \, et des filtres "user-friendly";
+#X obj 418 333 bob~;
+#X obj 41 334 lop~ 500;
+#X obj 117 333 hip~ 500;
+#X obj 275 333 vcf~ 500 50;
+#X obj 189 333 bp~ 500 50;
+#X obj 41 228 noise~;
+#X obj 233 580 *~ 0.2;
+#X obj 41 511 *~;
+#X obj 59 488 line~;
+#X msg 59 465 \$1 5;
+#X obj 59 368 vsl 15 90 0 1 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 117 510 *~;
+#X obj 135 487 line~;
+#X msg 135 464 \$1 5;
+#X obj 135 367 vsl 15 90 0 1 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 189 511 *~;
+#X obj 207 488 line~;
+#X msg 207 465 \$1 5;
+#X obj 207 368 vsl 15 90 0 1 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 275 510 *~;
+#X obj 293 487 line~;
+#X msg 293 464 \$1 5;
+#X obj 293 367 vsl 15 90 0 1 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 418 509 *~;
+#X obj 436 486 line~;
+#X msg 436 463 \$1 5;
+#X obj 436 366 vsl 15 90 0 1 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 209 621 dac~ 1 2;
+#X floatatom 170 228 5 10 10000 1 cutoff\ frequency - - 0;
+#X obj 385 289 line~;
+#X msg 385 266 \$1 5;
+#X obj 349 510 *~;
+#X obj 367 487 line~;
+#X msg 367 464 \$1 5;
+#X obj 367 367 vsl 15 90 0 1 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X floatatom 349 228 5 10 10000 1 Q - - 0;
+#X obj 443 273 line~;
+#X msg 443 250 \$1 5;
+#X floatatom 443 228 5 0 0 1 bob's\ Q - - 0;
+#X text 38 136 nous allons ici faire un tour des filtres user-friendly
+\, tous les filtres disponibles dans Pure Data sont listés dans la
+section AUDIO FILTERS de la liste globale des objets accessible depuis
+Help > List of objects...;
+#X text 562 134 [bob~] est un filtre passe-bas basé sur une modélisation
+des filtres analogiques Moog (comme dans Robert Moog \, l'inventeur
+des synthétiseurs analogiques mythiques \, d'où le nom). il "sonne"
+également très bien et la résonance est contrôlable par un signal
+audio \, il est donc lui aussi classé d'office "filtre musical";
+#X text 562 24 [vcf~] est un filtre complexe one-pole dont la sortie
+de gauche est un passe-bande et celle de droite un passe-bas. seul
+le paramètre de fréquence de coupure accepte un contrôle de type
+signal \, mais il "sonne" bien et la résonance n'est pas forcément
+le paramètre que l'on fait varier le plus souvent \, ce qui le hisse
+au rang de "filtre musical";
+#X text 41 668 [lop~] et [hip~] sont des filtres one-pole \, respectivement
+passe-bas et passe-haut \, et [bp~] est un filtre passe-bande avec
+un paramètre de résonance (Q). aucun de ces trois filtres n'accepte
+de contrôle de type signal \, ce qui en limite l'utilisation musicale
+et les désigne plutôt comme des utilitaires de "nettoyage" du signal
+\, ou du moins les confine à une utilisation statique;
+#X obj 726 561 bob~;
+#X obj 752 495 line~;
+#X msg 752 472 \$1 5;
+#X obj 827 480 line~;
+#X msg 827 457 \$1 5;
+#X floatatom 827 435 5 0 0 1 bob's\ Q - - 0;
+#X obj 674 443 phasor~;
+#X obj 674 493 -~ 1;
+#X obj 674 364 t f f;
+#X obj 674 420 line~;
+#X msg 674 397 \$1 5;
+#X obj 674 317 mtof;
+#X floatatom 674 341 5 0 0 0 - - - 0;
+#X floatatom 674 294 5 0 0 1 note\ MIDI - - 0;
+#X obj 752 449 *;
+#X obj 777 384 t b f;
+#X floatatom 777 360 5 0 0 1 cutoff\ ratio - - 0;
+#X obj 809 697 *~;
+#X obj 827 674 line~;
+#X msg 827 651 \$1 5;
+#X obj 827 554 vsl 15 90 0 1 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 787 728 dac~ 1 2;
+#X obj 674 468 *~ 2;
+#X obj 726 586 *~ 0.2;
+#X text 565 257 exemple d'utilisation musicale de [bob~] :;
+#X connect 2 0 25 0;
+#X connect 3 0 9 0;
+#X connect 4 0 13 0;
+#X connect 5 0 21 0;
+#X connect 5 1 33 0;
+#X connect 6 0 17 0;
+#X connect 7 0 3 0;
+#X connect 7 0 4 0;
+#X connect 7 0 6 0;
+#X connect 7 0 5 0;
+#X connect 7 0 2 0;
+#X connect 8 0 29 0;
+#X connect 8 0 29 1;
+#X connect 9 0 8 0;
+#X connect 10 0 9 1;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 8 0;
+#X connect 14 0 13 1;
+#X connect 15 0 14 0;
+#X connect 16 0 15 0;
+#X connect 17 0 8 0;
+#X connect 18 0 17 1;
+#X connect 19 0 18 0;
+#X connect 20 0 19 0;
+#X connect 21 0 8 0;
+#X connect 22 0 21 1;
+#X connect 23 0 22 0;
+#X connect 24 0 23 0;
+#X connect 25 0 8 0;
+#X connect 26 0 25 1;
+#X connect 27 0 26 0;
+#X connect 28 0 27 0;
+#X connect 30 0 3 1;
+#X connect 30 0 4 1;
+#X connect 30 0 6 1;
+#X connect 30 0 32 0;
+#X connect 31 0 5 1;
+#X connect 31 0 2 1;
+#X connect 32 0 31 0;
+#X connect 33 0 8 0;
+#X connect 34 0 33 1;
+#X connect 35 0 34 0;
+#X connect 36 0 35 0;
+#X connect 37 0 6 2;
+#X connect 37 0 5 2;
+#X connect 38 0 2 2;
+#X connect 39 0 38 0;
+#X connect 40 0 39 0;
+#X connect 45 0 68 0;
+#X connect 46 0 45 1;
+#X connect 47 0 46 0;
+#X connect 48 0 45 2;
+#X connect 49 0 48 0;
+#X connect 50 0 49 0;
+#X connect 51 0 67 0;
+#X connect 52 0 45 0;
+#X connect 53 0 55 0;
+#X connect 53 1 59 0;
+#X connect 54 0 51 0;
+#X connect 55 0 54 0;
+#X connect 56 0 57 0;
+#X connect 57 0 53 0;
+#X connect 58 0 56 0;
+#X connect 59 0 47 0;
+#X connect 60 0 59 0;
+#X connect 60 1 59 1;
+#X connect 61 0 60 0;
+#X connect 62 0 66 0;
+#X connect 62 0 66 1;
+#X connect 63 0 62 1;
+#X connect 64 0 63 0;
+#X connect 65 0 64 0;
+#X connect 67 0 52 0;
+#X connect 68 0 62 0;

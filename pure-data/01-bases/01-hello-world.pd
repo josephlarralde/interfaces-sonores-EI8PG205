@@ -1,0 +1,7 @@
+#N canvas 0 23 650 317 12;
+#X msg 122 95 hello world;
+#X obj 122 168 print;
+#X text 218 95 ceci est un message cliquable;
+#X text 168 167 ceci est un objet affichant ce qu'il reçoit dans la
+console;
+#X connect 0 0 1 0;

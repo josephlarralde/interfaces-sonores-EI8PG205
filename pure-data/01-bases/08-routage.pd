@@ -1,0 +1,188 @@
+#N canvas 1 23 1128 761 12;
+#X obj 66 280 spigot;
+#X obj 57 346 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 76 346 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 95 346 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 114 346 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 133 346 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 152 346 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 171 346 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 190 346 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 66 197 f;
+#X obj 97 197 + 1;
+#X obj 97 221 % 8;
+#X obj 66 164 metro 500;
+#X obj 66 141 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 66 316 sel 0 1 2 3 4 5 6 7;
+#X text 129 198 < un compteur bouclant sur l'intervalle [0 \, 7];
+#X text 211 316 [sel] est un alias de [select];
+#X obj 105 258 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 58 513 random 3;
+#X obj 58 491 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 58 608 pack f f;
+#X obj 111 584 random 12;
+#X obj 58 641 route 1 2 3;
+#X floatatom 40 707 5 0 0 0 - - - 0;
+#X floatatom 82 707 5 0 0 0 - - - 0;
+#X floatatom 124 707 5 0 0 0 - - - 0;
+#X obj 58 536 + 1;
+#X obj 58 562 t f b;
+#X text 47 31 plusieurs objets sont utiles au "routage" des données
+;
+#X text 140 163 < un métronome envoyant une pulsation toutes les 500
+ms;
+#X obj 604 19 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 604 722 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 656 66 cela marche pour les messages grâce aux objets [send]
+(alias [s]) et [receive] (alias [r]) \, et pour l'audio grâce aux
+objets [send~] \, [receive~] \, [throw~] et [catch~];
+#X text 655 30 il est également possible de faire du "sans fil" dans
+un même patch \, ou même entre plusieurs patchs;
+#X text 47 45 voici quelques exemples \, introduisant au passage de
+nouveaux objets :;
+#X text 171 639 [route] fonctionne de manière analogue à [select]
+: il regarde le premier élément du message entrant \, s'il correspond
+à l'un de ses argument il le supprime du message et propage la partie
+restante par la sortie correspondante \, sinon il transmet le message
+inchangé par la sortie de droite;
+#X obj 32 686 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 87 688 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 130 688 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 48 369 [select] s'instancie avec autant de sorties qu'on lui
+donne d'arguments \, plus une sortie supplémentaire à droite : il
+regarde le premier élément du message entrant \, s'il correspond
+à l'un de ses arguments il envoie un bang par la sortie correspondante
+\, sinon il transmet le message inchangé par la sortie de droite;
+#X floatatom 126 140 5 0 0 0 - - - 0;
+#X obj 66 105 loadbang;
+#X text 131 98 [loadbang] envoie un bang à l'ouverture du patch et
+permet d'initialiser son état;
+#X text 128 255 [spigot] laisse passer l'information entrante ou non
+en fonction de la valeur de son entrée de droite (nulle : fermée
+\, non nulle : ouverte);
+#X obj 734 158 send a;
+#X obj 734 187 receive a;
+#X floatatom 734 130 5 0 0 0 - - - 0;
+#X floatatom 734 219 5 0 0 0 - - - 0;
+#X floatatom 807 130 5 0 0 0 - - - 0;
+#X floatatom 807 219 5 0 0 0 - - - 0;
+#X floatatom 904 129 5 0 0 0 - - - 0;
+#X floatatom 904 218 5 0 0 0 - - - 0;
+#X obj 904 186 receive b;
+#X obj 904 157 send b;
+#X obj 807 158 s a;
+#X obj 807 187 r a;
+#X text 659 255 tout objet [receive] ayant le même argument qu'un
+objet [send] recevra les données émises par celui-ci;
+#X obj 661 497 send~ ch1;
+#X obj 662 531 receive~ ch1;
+#X obj 755 531 receive~ ch1;
+#X obj 661 449 noise~;
+#X obj 907 490 *~ 0.1;
+#X obj 907 562 throw~ ch2;
+#X obj 907 597 catch~ ch2;
+#X obj 998 489 *~ 0.1;
+#X obj 998 561 throw~ ch2;
+#X obj 662 603 *~;
+#X obj 662 557 bp~ 500 100;
+#X obj 680 582 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 755 603 *~;
+#X obj 773 582 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 755 557 bp~ 1500 100;
+#X obj 662 634 dac~ 1 2;
+#X obj 907 466 osc~ 440;
+#X obj 998 465 osc~ 660;
+#X obj 907 633 dac~ 1 2;
+#X obj 907 537 *~;
+#X obj 925 516 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 998 537 *~;
+#X obj 1016 516 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X text 660 292 NB : il est déconseillé d'instancier plusieurs [receive]
+avec le même argument si l'ordre de réception des données est indéterminé
+\, car cela équivaut à brancher une même sortie directement sur
+les entrées de plusieurs objets sans utiliser [trigger];
+#X text 655 401 [noise~] est un générateur de bruit blanc \, [bp~]
+est un filtre passe bande résonant :;
+#X obj 661 473 *~ 0.3;
+#X text 659 664 limitation : un seul [send~] peut exister pour n [receive~]
+\, et un seul [catch~] peut exister pour n [throw~];
+#X text 126 506 [random n] génère une valeur aléatoire entre 0 et
+n - 1 à chaque fois qu'il reçoit un bang;
+#X connect 0 0 14 0;
+#X connect 9 0 10 0;
+#X connect 9 0 0 0;
+#X connect 10 0 11 0;
+#X connect 11 0 9 1;
+#X connect 12 0 9 0;
+#X connect 13 0 12 0;
+#X connect 14 0 1 0;
+#X connect 14 1 2 0;
+#X connect 14 2 3 0;
+#X connect 14 3 4 0;
+#X connect 14 4 5 0;
+#X connect 14 5 6 0;
+#X connect 14 6 7 0;
+#X connect 14 7 8 0;
+#X connect 17 0 0 1;
+#X connect 18 0 26 0;
+#X connect 19 0 18 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 1;
+#X connect 22 0 23 0;
+#X connect 22 0 36 0;
+#X connect 22 1 24 0;
+#X connect 22 1 37 0;
+#X connect 22 2 25 0;
+#X connect 22 2 38 0;
+#X connect 26 0 27 0;
+#X connect 27 0 20 0;
+#X connect 27 1 21 0;
+#X connect 30 0 31 0;
+#X connect 40 0 12 1;
+#X connect 41 0 13 0;
+#X connect 45 0 47 0;
+#X connect 46 0 44 0;
+#X connect 48 0 54 0;
+#X connect 50 0 53 0;
+#X connect 52 0 51 0;
+#X connect 55 0 49 0;
+#X connect 58 0 67 0;
+#X connect 59 0 71 0;
+#X connect 60 0 82 0;
+#X connect 61 0 76 0;
+#X connect 63 0 75 0;
+#X connect 63 0 75 1;
+#X connect 64 0 78 0;
+#X connect 66 0 72 0;
+#X connect 67 0 66 0;
+#X connect 68 0 66 1;
+#X connect 69 0 72 1;
+#X connect 70 0 69 1;
+#X connect 71 0 69 0;
+#X connect 73 0 61 0;
+#X connect 74 0 64 0;
+#X connect 76 0 62 0;
+#X connect 77 0 76 1;
+#X connect 78 0 65 0;
+#X connect 79 0 78 1;
+#X connect 82 0 57 0;

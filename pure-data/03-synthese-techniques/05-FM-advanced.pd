@@ -1,0 +1,55 @@
+#N canvas 0 23 860 606 12;
+#X floatatom 256 113 5 0 0 2 carrier_ratio - -;
+#X floatatom 191 88 5 0 0 2 f0 - -;
+#X floatatom 358 186 5 0 0 1 modulator_index - -;
+#X floatatom 310 148 5 0 0 1 modulator_ratio - -;
+#X obj 191 184 *~;
+#X obj 238 184 *~;
+#X obj 238 222 osc~;
+#X obj 281 222 *~;
+#X obj 238 258 *~;
+#X obj 191 296 +~;
+#X obj 191 321 osc~;
+#X obj 142 508 dac~ 1 2;
+#X obj 142 369 *~;
+#X obj 49 270 line~;
+#X msg 49 249 \$1 10;
+#X obj 52 229 hsl 128 15 0 1 0 0 empty empty volume -2 -8 0 10 -262144
+-1 -1 0 0;
+#X obj 142 476 *~ 0.2;
+#X obj 397 384 ../utilities/spectral-display fm-adv;
+#X obj 191 19 loadbang;
+#X msg 191 52 500;
+#X msg 293 64 1;
+#X text 393 233 le comportement du spectre résultant de la synthèse
+FM est décrit par les fonctions de Bessel (non triviales);
+#X text 394 271 lorsque la fréquence porteuse et la fréquence de
+modulation sont des multiples entiers \, le spectre résultant est
+harmonique \, et l'amplitude de modulation permet de jouer sur le timbre
+(plus l'amplitude de modulation est grande \, plus le spectre présente
+de composantes harmoniques et le son résultant est "brillant");
+#X connect 0 0 4 1;
+#X connect 1 0 4 0;
+#X connect 1 0 5 0;
+#X connect 2 0 7 1;
+#X connect 3 0 5 1;
+#X connect 4 0 9 0;
+#X connect 5 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 7 0 8 1;
+#X connect 8 0 9 1;
+#X connect 9 0 10 0;
+#X connect 10 0 12 1;
+#X connect 10 0 17 0;
+#X connect 12 0 16 0;
+#X connect 13 0 12 0;
+#X connect 14 0 13 0;
+#X connect 15 0 14 0;
+#X connect 16 0 11 0;
+#X connect 16 0 11 1;
+#X connect 18 0 19 0;
+#X connect 18 0 20 0;
+#X connect 19 0 1 0;
+#X connect 20 0 0 0;
+#X connect 20 0 3 0;

@@ -1,0 +1,125 @@
+#N canvas 1 23 1087 692 12;
+#X text 49 59 - bang (alias b) : message de déclenchement sans valeur
+;
+#X text 49 95 - symbol (alias s) : chaîne de caractères;
+#X text 49 77 - float (alias f) : nombre à virgule flottante;
+#X text 49 113 - list (alias l) : liste de plusieurs des types précédents
+;
+#X obj 93 566 trigger bang float symbol list anything;
+#X obj 53 535 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X floatatom 60 501 5 0 0 0 - - - 0;
+#X msg 179 500 symbol un_symbole;
+#X text 380 566 <=>;
+#X obj 415 566 t b f s l a;
+#X obj 93 600 print b;
+#X obj 160 600 print f;
+#X obj 228 600 print s;
+#X obj 295 600 print l;
+#X obj 363 600 print a;
+#X text 579 165 un de ses usages les plus fréquents est la transformation
+d'une entrée "froide" en entrée "chaude" :;
+#X msg 102 480 1 2 3;
+#X msg 194 529 list une liste debutant par un symbole 1 2 3;
+#X obj 835 282 +;
+#X floatatom 798 222 5 0 0 0 - - - 0;
+#X obj 856 248 t b f;
+#X floatatom 856 222 5 0 0 0 - - - 0;
+#X floatatom 835 310 5 0 0 0 - - - 0;
+#X obj 688 283 +;
+#X floatatom 672 223 5 0 0 0 - - - 0;
+#X floatatom 718 223 5 0 0 0 - - - 0;
+#X floatatom 688 311 5 0 0 0 - - - 0;
+#X text 761 283 -->;
+#X obj 538 21 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 538 656 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X msg 159 474 un message generique;
+#X text 579 30 [trigger] s'instancie avec autant de sorties qu'on lui
+fournit d'arguments \, et propage les messages entrants par toutes
+ses sorties \, de la plus à droite vers la plus à gauche;
+#X text 50 268 pour qu'un message générique soit considéré comme
+étant de type list \, le mot clé "list" doit être ajouté au début
+du message;
+#X text 49 420 on retrouve ces types comme arguments de certains objets
+fréquemment utilisés \, notamment l'objet [trigger] (alias [t]) :
+;
+#X text 52 155 ATTENTION :;
+#X text 49 320 le même principe s'applique pour un message contenant
+seulement un symbole : pour qu'il soit considéré comme étant de
+type symbol \, le mot clé "symbol" doit être ajouté avant le symbole
+en question;
+#X text 50 216 une liste commençant par un symbole est considérée
+comme un message générique (sans type particulier) \, le symbole
+de début étant appelé un "sélecteur";
+#X text 49 33 Pure Data manipule les types de données non audio suivants
+:;
+#X text 51 178 une liste commençant par un nombre est automatiquement
+considérée comme étant de type list \, mais :;
+#X text 579 96 il opère si possible l'équivalent d'un "cast" (par
+exemple un bang sera traduit par 0 sur une sortie de type float) \,
+ou passe le message tel quel dans le cas d'une sortie de type anything
+(alias a);
+#X text 576 562 la convention est que cet ordre d'exécution se fait
+selon un parcours de graphe en profondeur \, de droite à gauche;
+#X floatatom 734 399 5 0 0 0 - - - 0;
+#X obj 734 474 -;
+#X obj 734 446 * 5;
+#X obj 766 446 * 3;
+#X floatatom 734 503 5 0 0 0 - - - 0;
+#X floatatom 639 399 5 0 0 0 - - - 0;
+#X obj 639 474 -;
+#X obj 639 446 * 5;
+#X obj 671 446 * 3;
+#X floatatom 639 503 5 0 0 0 - - - 0;
+#X floatatom 903 399 5 0 0 0 - - - 0;
+#X obj 903 474 -;
+#X obj 903 446 * 5;
+#X obj 935 446 * 3;
+#X floatatom 903 503 5 0 0 0 - - - 0;
+#X obj 903 422 t f f;
+#X text 897 529 bien :);
+#X text 581 349 [trigger] est également essentiel dans le contrôle
+de l'ordre d'exécution du graphe que constitue un patch :;
+#X text 576 600 d'autres objets comme [route] \, [pack] et [unpack]
+utilisent les types comme arguments pour définir des entrées et sorties
+typées;
+#X text 831 444 -->;
+#X text 609 529 pas bien (ordre indéterminé) :(;
+#X connect 4 0 10 0;
+#X connect 4 1 11 0;
+#X connect 4 2 12 0;
+#X connect 4 3 13 0;
+#X connect 4 4 14 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 16 0 4 0;
+#X connect 17 0 4 0;
+#X connect 18 0 22 0;
+#X connect 19 0 18 0;
+#X connect 20 0 18 0;
+#X connect 20 1 18 1;
+#X connect 21 0 20 0;
+#X connect 23 0 26 0;
+#X connect 24 0 23 0;
+#X connect 25 0 23 1;
+#X connect 28 0 29 0;
+#X connect 30 0 4 0;
+#X connect 41 0 43 0;
+#X connect 41 0 44 0;
+#X connect 42 0 45 0;
+#X connect 43 0 42 0;
+#X connect 44 0 42 1;
+#X connect 46 0 49 0;
+#X connect 46 0 48 0;
+#X connect 47 0 50 0;
+#X connect 48 0 47 0;
+#X connect 49 0 47 1;
+#X connect 51 0 56 0;
+#X connect 52 0 55 0;
+#X connect 53 0 52 0;
+#X connect 54 0 52 1;
+#X connect 56 0 53 0;
+#X connect 56 1 54 0;

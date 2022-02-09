@@ -1,0 +1,64 @@
+#N canvas 0 23 977 501 12;
+#X text 43 30 contrairement aux données non audio qui s'exécutent
+tant que le logiciel est ouvert \, le signal audio est calculé seulement
+quand l'audio est activé;
+#X text 42 106 - depuis la console \, en cliquant sur le bouton "DSP"
+;
+#X text 56 144 Cmd/Ctrl + "/" pour activer l'audio;
+#X text 56 162 Cmd/Ctrl + "." pour le désactiver;
+#X text 42 124 - en utilisant les raccourcis clavier :;
+#X text 42 181 - en envoyant directement un message au moteur audio
+;
+#X msg 59 232 \; pd dsp \$1;
+#X obj 59 210 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 61 374 1;
+#X msg 97 397 0;
+#X obj 78 438 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 61 350 receive pd-dsp-started;
+#X obj 97 374 receive pd-dsp-stopped;
+#X text 42 86 pour activer/désactiver l'audio il y a plusieurs méthodes
+:;
+#X text 43 302 il est possible de visualiser l'état du moteur audio
+en écoutant certains messages émis par celui-ci :;
+#X obj 498 23 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 498 447 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 528 30 pour recevoir du son d'un micro ou d'un instrument physique
+\, ou en envoyer sur les haut-parleurs \, il faut avoir accès à l'interface
+audionumérique de l'ordinateur \, plus communément appelée "carte
+son";
+#X obj 573 210 adc~ 1;
+#X obj 573 241 env~ 4096 2048;
+#X obj 573 265 dbtorms;
+#X obj 573 293 vsl 15 90 0 1 0 0 empty empty empty 0 -9 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 794 396 dac~ 1 2;
+#X obj 815 342 *~;
+#X obj 815 269 osc~ 440;
+#X obj 815 294 *~ 0.1;
+#X obj 833 322 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X text 551 420 objet [dac~] (Digital to Analog Converter) accédant
+aux canaux de sortie n° 1 et 2 de la carte son;
+#X text 529 171 objet [adc~] (Analog to Digital Converter) accédant
+au canal d'entrée n° 1 de la carte son;
+#X text 528 93 c'est le rôle des objets [adc~] et [dac~] qui permettent
+respectivement de recevoir des flux audio de n'importe quelles entrées
+de la carte son et d'en envoyer vers n'importe quelles sorties;
+#X connect 7 0 6 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 0;
+#X connect 11 0 8 0;
+#X connect 12 0 9 0;
+#X connect 15 0 16 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
+#X connect 23 0 22 0;
+#X connect 23 0 22 1;
+#X connect 24 0 25 0;
+#X connect 25 0 23 0;
+#X connect 26 0 23 1;
