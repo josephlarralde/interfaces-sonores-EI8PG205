@@ -7,14 +7,14 @@
 #X obj 201 537 dac~ 1 2;
 #X obj 510 400 line~;
 #X msg 510 379 \$1 10;
-#X obj 513 359 hsl 128 15 0 1 0 0 empty empty volume -2 -8 0 10 -262144
--1 -1 0 0;
+#X obj 513 359 hsl 128 15 0 1 0 0 empty empty volume -2 -8 0 10 #fcfcfc
+#000000 #000000 0 0;
 #X obj 63 348 *~;
 #X obj 104 348 *~;
 #X obj 144 348 *~;
 #X obj 184 348 *~;
 #X obj 224 348 *~;
-#X floatatom 63 114 5 0 0 2 f0 - -;
+#X floatatom 63 114 5 0 0 2 f0 - - 0;
 #X obj 144 195 * 3;
 #X obj 184 194 * 4;
 #X obj 224 194 * 5;
@@ -30,8 +30,8 @@
 #X obj 263 226 line~;
 #X msg 263 205 \$1 10;
 #X obj 147 81 metro 20;
-#X obj 147 60 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
+#X obj 147 60 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X obj 147 35 loadbang;
 #X obj 147 105 array get \$0-amplitudes;
 #X obj 78 395 outlet~;
@@ -95,6 +95,9 @@
 de toutes : elle consiste à construire un spectre fréquence par fréquence
 \, en utilisant un oscillateur par partiel et en contrôlant directement
 son amplitude en lui appliquant un facteur constant;
+#X text 312 591 ici on construit un spectre harmonique (dont tous les
+partiels sont des multiples entiers d'un même fréquence f0 : la "fondamentale")
+;
 #X connect 0 0 9 0;
 #X connect 1 0 10 0;
 #X connect 2 0 11 0;

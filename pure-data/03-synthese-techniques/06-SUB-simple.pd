@@ -1,10 +1,10 @@
 #N canvas 0 23 778 528 12;
 #X obj 119 178 vcf~;
 #X obj 64 48 noise~;
-#X floatatom 176 119 5 0 0 2 Q - -;
-#X floatatom 131 119 5 0 0 2 fc - -;
-#X obj 203 226 hsl 128 15 0 1 0 0 empty empty dry/wet -2 -8 0 10 -262144
--1 -1 12700 0;
+#X floatatom 176 119 5 0 0 2 Q - - 0;
+#X floatatom 131 119 5 0 0 2 fc - - 0;
+#X obj 203 226 hsl 128 15 0 1 0 0 empty empty dry/wet -2 -8 0 10 #fcfcfc
+#000000 #000000 0 0;
 #X obj 64 392 *~ 0.2;
 #X obj 46 432 dac~ 1 2;
 #X obj 249 294 ../utilities/spectral-display test;
@@ -13,34 +13,34 @@
 réduction du contenu spectral d'un signal source : on "soustrait"
 (ou atténue) certaines des fréquences présentes dans le signal afin
 d'obtenir un son particulier;
-#X text 304 109 en pratique on utilise généralement différentes
-sortes de filtres pour réduire le contenu spectral;
 #X obj 64 178 *~ 0.1;
 #X text 159 179 < simple filtre passe-bas résonant;
 #X obj 64 364 *~;
 #X obj 82 335 line~;
 #X msg 82 314 \$1 10;
-#X obj 85 294 hsl 128 15 0 1 0 0 empty empty volume -2 -8 0 10 -262144
--1 -1 0 0;
+#X obj 85 294 hsl 128 15 0 1 0 0 empty empty volume -2 -8 0 10 #fcfcfc
+#000000 #000000 0 0;
 #X obj 143 35 loadbang;
 #X msg 131 72 1000;
 #X msg 176 72 100;
+#X text 304 109 en pratique on utilise généralement différentes
+sortes de filtres audio pour réduire le contenu spectral;
 #X connect 0 1 8 1;
 #X connect 1 0 0 0;
-#X connect 1 0 11 0;
+#X connect 1 0 10 0;
 #X connect 2 0 0 2;
 #X connect 3 0 0 1;
 #X connect 4 0 8 2;
 #X connect 5 0 6 0;
 #X connect 5 0 6 1;
 #X connect 8 0 7 0;
-#X connect 8 0 13 0;
-#X connect 11 0 8 0;
-#X connect 13 0 5 0;
-#X connect 14 0 13 1;
+#X connect 8 0 12 0;
+#X connect 10 0 8 0;
+#X connect 12 0 5 0;
+#X connect 13 0 12 1;
+#X connect 14 0 13 0;
 #X connect 15 0 14 0;
-#X connect 16 0 15 0;
-#X connect 17 0 19 0;
-#X connect 17 0 18 0;
-#X connect 18 0 3 0;
-#X connect 19 0 2 0;
+#X connect 16 0 18 0;
+#X connect 16 0 17 0;
+#X connect 17 0 3 0;
+#X connect 18 0 2 0;
