@@ -1,4 +1,4 @@
-#N canvas 0 23 824 699 12;
+#N canvas 0 34 824 675 12;
 #X obj 63 230 osc~;
 #X obj 104 230 osc~;
 #X obj 144 230 osc~;
@@ -18,7 +18,7 @@
 #X obj 144 195 * 3;
 #X obj 184 194 * 4;
 #X obj 224 194 * 5;
-#N canvas 0 23 517 451 read-amplitudes 0;
+#N canvas 174 46 517 451 read-amplitudes 0;
 #X obj 78 226 line~;
 #X msg 78 205 \$1 10;
 #X obj 124 226 line~;

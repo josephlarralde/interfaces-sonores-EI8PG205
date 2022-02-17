@@ -1,4 +1,4 @@
-#N canvas 0 23 1123 642 12;
+#N canvas 0 23 1123 685 12;
 #X obj 50 106 openpanel;
 #X obj 50 61 bng 30 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
 #000000;
@@ -21,10 +21,10 @@
 #X obj 51 374 /;
 #X obj 51 399 s \$0-msduration;
 #X obj 414 56 r \$0-msduration;
-#X obj 361 548 *~;
-#X obj 388 522 line~;
-#X msg 388 499 \$1 10;
-#X obj 391 480 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#X obj 361 588 *~;
+#X obj 388 562 line~;
+#X msg 388 539 \$1 10;
+#X obj 391 520 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
 #000000 #000000 0 0;
 #X msg 563 261 \$1 \, 0 \$2;
 #X obj 563 236 spigot;
@@ -33,20 +33,14 @@
 #000000 0 1;
 #X obj 570 159 t f f;
 #X obj 570 183 == 0;
-#X obj 337 583 dac~ 1 2;
+#X obj 337 623 dac~ 1 2;
 #X msg 413 360 0;
 #X obj 428 131 t b f;
 #X floatatom 428 84 5 0 0 1 transposition - - 0;
 #X obj 428 107 expr pow(2 \, $f1/12);
 #X obj 414 159 /;
-#X obj 537 548 *~;
-#X obj 564 522 line~;
-#X msg 564 499 \$1 10;
-#X obj 567 480 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
-#000000 #000000 0 0;
-#X obj 513 583 dac~ 1 2;
-#X obj 361 455 tabread~ simple-sample;
-#X obj 537 454 tabread4~ simple-sample;
+#X obj 361 439 tabread~ simple-sample;
+#X obj 537 438 tabread4~ simple-sample;
 #X text 670 148 différents algorithmes d'interpolation existent \,
 le plus simple étant l'interpolation linéaire qui ne donne pas d'excellents
 résultats.;
@@ -71,8 +65,14 @@ et par les n points la suivant. l'interpolation cubique est similaire
 dans le sens où l'on calcule les valeurs en se basant sur les 2 points
 précédents et les 2 points suivants (d'où le suffixe "4" dans les
 objets utilisant cette technique \, pour "4-point interpolation");
-#X text 712 454 < avec interpolation;
-#X text 113 455 sans interpolation (drop-sample) >;
+#X text 712 438 < avec interpolation;
+#X text 113 439 sans interpolation (drop-sample) >;
+#X obj 361 479 ../utilities/mix2~;
+#X obj 498 481 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 254 208 metro 500;
+#X obj 255 171 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X connect 0 0 7 0;
 #X connect 1 0 0 0;
 #X connect 2 0 4 0;
@@ -81,8 +81,8 @@ objets utilisant cette technique \, pour "4-point interpolation");
 #X connect 5 0 6 0;
 #X connect 7 0 2 0;
 #X connect 9 0 10 0;
-#X connect 10 0 41 0;
-#X connect 10 0 42 0;
+#X connect 10 0 36 0;
+#X connect 10 0 37 0;
 #X connect 11 0 26 0;
 #X connect 11 0 25 0;
 #X connect 12 0 11 0;
@@ -110,10 +110,9 @@ objets utilisant cette technique \, pour "4-point interpolation");
 #X connect 33 0 34 0;
 #X connect 34 0 32 0;
 #X connect 35 0 11 1;
-#X connect 36 0 40 0;
-#X connect 36 0 40 1;
-#X connect 37 0 36 1;
-#X connect 38 0 37 0;
-#X connect 39 0 38 0;
-#X connect 41 0 20 0;
-#X connect 42 0 36 0;
+#X connect 36 0 47 0;
+#X connect 37 0 47 1;
+#X connect 47 0 20 0;
+#X connect 48 0 47 2;
+#X connect 49 0 14 0;
+#X connect 50 0 49 0;

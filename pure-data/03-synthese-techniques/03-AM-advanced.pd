@@ -1,4 +1,4 @@
-#N canvas 0 23 884 683 12;
+#N canvas 0 23 884 675 12;
 #X obj 72 177 osc~;
 #X obj 113 177 osc~;
 #X obj 153 177 osc~;
@@ -7,14 +7,14 @@
 #X obj 210 461 dac~ 1 2;
 #X obj 462 330 line~;
 #X msg 462 309 \$1 10;
-#X obj 465 289 hsl 128 15 0 1 0 0 empty empty volume -2 -8 0 10 -262144
--1 -1 0 0;
+#X obj 465 289 hsl 128 15 0 1 0 0 empty empty volume -2 -8 0 10 #fcfcfc
+#000000 #000000 0 0;
 #X obj 72 272 *~;
 #X obj 113 272 *~;
 #X obj 153 272 *~;
 #X obj 193 272 *~;
 #X obj 233 272 *~;
-#X floatatom 72 96 5 0 0 2 f0 - -;
+#X floatatom 72 96 5 0 0 2 f0 - - 0;
 #X obj 113 142 * 2;
 #X obj 153 142 * 3;
 #X obj 193 141 * 4;
@@ -32,8 +32,8 @@
 #X msg 263 204 \$1 10;
 #X obj 78 80 metro 20;
 #X obj 78 128 unpack f f f f f;
-#X obj 78 59 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
-;
+#X obj 78 59 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000
+0 1;
 #X obj 78 34 loadbang;
 #X obj 78 104 array get \$0-amplitudes;
 #X obj 78 363 outlet~;
@@ -69,9 +69,9 @@
 #X msg 461 56 1 0.8 0.6 0.4 0.2;
 #X obj 72 34 loadbang;
 #X obj 324 296 osc~;
-#X floatatom 324 272 5 0 0 2 f_mod - -;
+#X floatatom 324 272 5 0 0 2 f_mod - - 0;
 #X obj 233 357 *~;
-#X obj 456 440 ../utilities/spectral-display am-adv;
+#X obj 507 452 ../utilities/spectral-display am-adv;
 #X msg 72 58 500;
 #X text 456 375 on constate que le repliement spectral se produit non
 seulement à la fréquence de Nyquist mais aussi lorsque la fréquence
