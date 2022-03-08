@@ -1,0 +1,3 @@
+[submodule "c++-audio/dep/AudioFile"]
+	path = c++-audio/dep/AudioFile
+	url = https://github.com/adamstark/AudioFile.git
