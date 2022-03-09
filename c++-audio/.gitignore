@@ -1,0 +1,9 @@
+in-progress/
+# dep/InterfacesSonores/
+
+tp1/*
+!tp1/*.cpp
+!tp1/*.h
+!tp1/Makefile
+
+tp1-solutions/
