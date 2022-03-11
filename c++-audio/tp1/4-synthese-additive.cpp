@@ -30,7 +30,17 @@ int main(int argc, char* argv[]) {
   }
 
   for (int i = 0; i < af.getNumSamplesPerChannel(); i++) {
-    // TODO ...
+    // SOLUTION //////////////////////////////////////////
+
+    float val = 0;
+
+    for (int p = 1; p < nbPartials; p++) {
+      val += oscillators[p - 1].getNextValue(frequency * p) / p;
+    }
+    
+    af.samples[0][i] = 0.5 * val;
+
+    //////////////////////////////////////////////////////
   }
 
   af.save("synthese-additive.wav", AudioFileFormat::Wave);

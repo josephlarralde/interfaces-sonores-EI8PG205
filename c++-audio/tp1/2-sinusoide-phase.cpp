@@ -28,8 +28,8 @@ int main(int argc, char* argv[]) {
   af.setNumSamplesPerChannel(sampleRate * duration);
 
   for (int i = 0; i < af.getNumSamplesPerChannel(); i++) {
-    af.samples[0][i] = 0.2 * sin(2 * M_PI * phase);
-    phase = amplitude * getNextPhaseValue(phase, sampleRate, frequency);
+    af.samples[0][i] = amplitude * sin(2 * M_PI * phase);
+    phase = getNextPhaseValue(phase, sampleRate, frequency);
   }
 
   af.save("sinusoide-phase.wav", AudioFileFormat::Wave);

@@ -18,10 +18,10 @@
 //------------------------------------------------------------------------------
 
 int main(int argc, char* argv[]) {
-  float duration = 1; // seconds
+  float duration = 20;      // seconds
   float sampleRate = 44100; // Hz
   float amplitude = 0.2;
-  float frequency = 440; // Hz
+  float frequency = 440;    // Hz
 
   if (argc > 1) {
     frequency = std::atof(*(argv + 1));

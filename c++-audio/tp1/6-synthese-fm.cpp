@@ -1,5 +1,4 @@
 #include "AudioFile.h"
-#include "ADSR.h"
 #include "./utilities.h"
 
 /*
@@ -11,21 +10,15 @@
 */
 
 int main(int argc, char* argv[]) {
-  std::string basename = "synthese-fm";
   float duration = 5;
   float sampleRate = 44100;
   float amplitude = 1;
-  float fc = 440;
-  float mr = 1;
-  float mi = 1;
 
-  if (argc > 1) {
-    fc = std::atof(*(argv + 1));
+  float fc = 440;     // carrier frequency
+  float mr = 2;       // modulation ratio
+  float fm = fc * mr; // modulation frequency
+  float mi = 1;       // modulation index
 
-    if (argc > 2) {
-      basename = std::string(*(argv + 2));
-    }
-  }
   AudioFile<float> af;
   af.setNumChannels(1);
   af.setNumSamplesPerChannel(sampleRate * duration);
@@ -33,13 +26,16 @@ int main(int argc, char* argv[]) {
   Oscillator carrier(sampleRate);
   Oscillator modulator(sampleRate);
 
-  float fm = fc * mr;
-
   for (int i = 0; i < af.getNumSamplesPerChannel(); i++) {
-    // TODO ...
+    // SOLUTION //////////////////////////////////////////
+
+    float s = carrier.getNextValue(fc + mi * fm * modulator.getNextValue(fm));
+    af.samples[0][i] = amplitude * s;
+
+    //////////////////////////////////////////////////////
   }
 
-  af.save(basename + ".wav", AudioFileFormat::Wave);
+  af.save("synthese-fm.wav", AudioFileFormat::Wave);
 
   return 0;
 }
