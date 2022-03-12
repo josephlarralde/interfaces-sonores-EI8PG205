@@ -37,9 +37,8 @@ void fillTable(std::vector<float>& table, WaveShape shape, int nbHarmonics = 15)
     {
       for (int i = 0; i < table.size(); i++) {
         table[i] = sin(2 * M_PI * phase);
+        phase += phaseInc;
       }
-
-      phase += phaseInc;
     }
     break;
 

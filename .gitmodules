@@ -1,3 +1,6 @@
 [submodule "c++-audio/dep/AudioFile"]
 	path = c++-audio/dep/AudioFile
 	url = https://github.com/adamstark/AudioFile.git
+[submodule "c++-audio/dep/pd-lib-builder"]
+	path = c++-audio/dep/pd-lib-builder
+	url = https://github.com/pure-data/pd-lib-builder
