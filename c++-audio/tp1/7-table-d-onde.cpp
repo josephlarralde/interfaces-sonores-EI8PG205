@@ -24,7 +24,7 @@ enum WaveShape
   SawTooth,
   Square,
   Triangle
-}
+};
 
 void fillTable(std::vector<float>& table, WaveShape shape, int nbHarmonics = 15)
 {
