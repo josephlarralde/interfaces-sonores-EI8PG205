@@ -1,0 +1,7 @@
+#N canvas 1 25 450 300 12;
+#X declare -path is;
+#X obj 175 108 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 20 19 declare -path is;
+#X obj 175 138 helloworld;
+#X connect 0 0 2 0;

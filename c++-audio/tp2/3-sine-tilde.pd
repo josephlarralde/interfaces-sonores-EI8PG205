@@ -1,0 +1,26 @@
+#N canvas 0 25 562 499 12;
+#X declare -path is -path ../../pure-data/utilities;
+#X obj 194 232 mix2~;
+#X obj 243 232 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 194 340 *~;
+#X obj 222 312 line~;
+#X msg 222 289 \$1 5;
+#X obj 225 269 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 176 380 dac~ 1 2;
+#X obj 16 15 declare -path is -path ../../pure-data/utilities;
+#X floatatom 205 95 5 0 0 0 - - - 0;
+#X obj 235 153 sine~ 440;
+#X obj 169 153 osc~ 440;
+#X connect 0 0 2 0;
+#X connect 1 0 0 2;
+#X connect 2 0 6 0;
+#X connect 2 0 6 1;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
+#X connect 8 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 0 1;
+#X connect 10 0 0 0;
