@@ -1,9 +1,18 @@
 in-progress/
-# dep/InterfacesSonores/
+
+dep/InterfacesSonores/*
+!dep/InterfacesSonores/interpolators.h
+!dep/InterfacesSonores/oscillator-utils.h
+!dep/InterfacesSonores/Oscillators.h
 
 tp1/*
 !tp1/*.cpp
 !tp1/*.h
 !tp1/Makefile
 
-tp1-solutions/
+tp-solutions/
+
+tp2/*
+!tp2/*.cpp
+!tp2/*.pd
+!tp2/Makefile
