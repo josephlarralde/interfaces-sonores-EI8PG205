@@ -1,12 +1,15 @@
 //------------------------------------------------------------------------------
+// linear interpolation between 2 samples in buffer buf, at indices index and
+// index + 1, at the intermediary position frac
 float interpolateLinear(float* buf, unsigned int index, float frac) {
   float* p = buf + index;
 
   return (1. - frac) * (*p) + frac * (*(p + 1));
 }
 
-
 //------------------------------------------------------------------------------
+// cubic interpolation between 2 samples in buffer buf, at indices index and
+// index + 1, at the intermediary position frac
 float interpolateCubic(float *buf, unsigned int size,
                        unsigned int index, float frac,
                        bool cyclic = true) {
@@ -14,7 +17,7 @@ float interpolateCubic(float *buf, unsigned int size,
   float a, b, c, d, cminusb;
 
   // if cyclic, wrap around buffer values, otherwise zero-pad
-
+  
   a = (index <= 0)
     ? (cyclic ? *(buf + size + index - 1) : 0)
     : *(p - 1);
