@@ -1,0 +1,30 @@
+#N canvas 295 320 699 448 12;
+#X obj 135 276 simpler~;
+#X obj 202 60 openpanel;
+#X obj 201 35 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X msg 202 126 /Users/larralde/Projects/git-repositories/josephlarralde/interfaces-sonores-2022/pure-data/sounds/acoustic/Piano.ff.G4.wav
+;
+#X msg 202 82 set \$1;
+#X obj 158 356 *~;
+#X obj 249 275 line~;
+#X msg 249 251 \$1 5;
+#X obj 251 231 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 0;
+#X obj 135 387 dac~ 1 2;
+#X msg 49 149 1;
+#X floatatom 124 137 5 0 0 0 - - - 0;
+#X msg 49 174 0;
+#X connect 0 0 5 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 2;
+#X connect 4 0 3 0;
+#X connect 5 0 9 0;
+#X connect 5 0 9 1;
+#X connect 6 0 5 1;
+#X connect 7 0 6 0;
+#X connect 8 0 7 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 1;
+#X connect 12 0 0 0;

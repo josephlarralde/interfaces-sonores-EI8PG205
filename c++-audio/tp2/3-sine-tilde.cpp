@@ -72,7 +72,6 @@ void* sine_new(t_symbol *s, int argc, t_atom *argv) {
 
   x->sine = new SineOscillator();
   x->sine->setSampleRate(sys_getsr());
-  x->didPost = false;
   x->x_out = outlet_new(&x->x_obj, &s_signal);
   
   return (void*) x;

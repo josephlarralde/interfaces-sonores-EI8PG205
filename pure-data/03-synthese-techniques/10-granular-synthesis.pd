@@ -1,4 +1,4 @@
-#N canvas 5 23 1240 699 12;
+#N canvas 5 25 1240 699 12;
 #X obj 47 88 openpanel;
 #X obj 47 140 soundfiler;
 #X msg 47 114 read -resize \$1 granular-sample;

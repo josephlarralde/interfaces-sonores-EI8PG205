@@ -1,4 +1,4 @@
-#N canvas 0 25 919 721 12;
+#N canvas 1 25 919 721 12;
 #X declare -path is -path ../../pure-data/utilities -path ../../pure-data/sounds
 ;
 #X obj 66 626 declare -path is -path ../../pure-data/utilities -path
@@ -370,7 +370,6 @@
 #X connect 55 1 50 0;
 #X connect 56 0 18 0;
 #X connect 57 0 53 0;
-#X connect 58 0 60 0;
 #X connect 59 0 9 0;
 #X connect 60 0 59 1;
 #X connect 61 0 46 0;

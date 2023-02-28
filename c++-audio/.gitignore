@@ -1,4 +1,5 @@
 in-progress/
+tp-solutions/
 
 dep/InterfacesSonores/*
 !dep/InterfacesSonores/interpolators.h
@@ -9,8 +10,6 @@ tp1/*
 !tp1/*.cpp
 !tp1/*.h
 !tp1/Makefile
-
-tp-solutions/
 
 tp2/*
 !tp2/*.cpp
