@@ -1,3 +1,3 @@
-# Supports du cours EI8PG205 Interfaces Sonores
+# EI8PG205 Interfaces Sonores - ENSEIRB-MATMECA
 
-### ENSEIRB-MATMECA
+### Supports du cours
