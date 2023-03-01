@@ -1,5 +1,5 @@
 in-progress/
-tp-solutions/
+solutions/
 
 dep/InterfacesSonores/*
 !dep/InterfacesSonores/interpolators.h
