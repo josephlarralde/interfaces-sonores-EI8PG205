@@ -42,62 +42,30 @@ void fillTable(std::vector<float>& table, WaveShape shape, int nbHarmonics = 15)
     }
     break;
 
+    // TODO ////////////////////////////////////////////////////////////////////
+
     //--------------------------------------------------------------------------
     case WaveShape::SawTooth:
     {
-      float coeff = -2 / M_PI;
-
-      for (int i = 0; i < table.size(); i++) {
-        table[i] = 0;
-
-        for (int k = 1; k <= nbHarmonics; k++) {
-          table[i] += (k % 2 == 0 ? 1 : -1) *
-                      sin(2 * M_PI * k * phase) / k;
-        }
-
-        table[i] *= coeff;
-        phase += phaseInc;
-      }
+      // ...
     }
     break;
 
     //--------------------------------------------------------------------------
     case WaveShape::Square:
     {
-      float coeff = 4 / M_PI;
-
-      for (int i = 0; i < table.size(); i++) {
-        table[i] = 0;
-
-        for (int k = 1; k <= nbHarmonics; k++) {
-          table[i] += sin(2 * M_PI * (2 * k - 1) * phase) / (2 * k - 1);
-        }
-
-        table[i] *= coeff;
-        phase += phaseInc;
-      }
+      // ...
     }
     break;
 
     //--------------------------------------------------------------------------
     case WaveShape::Triangle:
     {
-      float coeff = -8 / pow(M_PI, 2);
-
-      for (int i = 0; i < table.size(); i++) {
-        table[i] = 0;
-
-        for (int k = 1; k <= nbHarmonics; k++) {
-          table[i] += (k % 2 == 0 ? 1 : -1) *
-                      sin(2 * M_PI * (2 * k - 1) * phase) /
-                      pow(2 * k - 1, 2);
-        }
-
-        table[i] *= coeff;
-        phase += phaseInc;
-      }
+      // ...
     }
     break;
+
+    ////////////////////////////////////////////////////////////////////////////
 
     //--------------------------------------------------------------------------
     default:

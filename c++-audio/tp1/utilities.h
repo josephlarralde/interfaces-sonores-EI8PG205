@@ -3,29 +3,22 @@
 
 //------------------------------------------------------------------------------
 float getSinusoidValueAtIndex(int i, float sr, float f) {
-  // SOLUTION ///////////////////////////////////////////
+  // TODO ///////////////////////////////////////////////
 
-  float t = static_cast<float>(i) / sr;
-  return sin(2 * M_PI * f * t);
+  // ...
+  
+  return 0;
 
   ///////////////////////////////////////////////////////
 }
 
 //------------------------------------------------------------------------------
 float getNextPhaseValue(float phase, float sr, float f) {
-  // SOLUTION ///////////////////////////////////////////
+  // TODO ///////////////////////////////////////////////
 
-  // nbOfSamplesPerPeriod == sr / f
-  // phaseIncrement == 1 / nbOfSamplesPerPeriod
-  float nextPhase = phase + f / sr;
+  // ...
 
-  if (nextPhase >= 1) {
-    nextPhase -= floor(nextPhase); // keep phase between 0 and 1
-  } else if (nextPhase < 0) { // this occurs when f < 0
-    nextPhase += floor(fabs(phase) + 1);
-  }
-
-  return nextPhase;
+  return 0;
 
   ///////////////////////////////////////////////////////
 }
@@ -44,10 +37,11 @@ public:
   ~Oscillator() {}
 
   float getNextValue(float frequency) {
-    // SOLUTION ///////////////////////////////////////////
+    // TODO ///////////////////////////////////////////////
 
-    phase = getNextPhaseValue(phase, sr, frequency);
-    return sin(2 * M_PI * phase);
+    // ...
+
+    return 0;
 
     ///////////////////////////////////////////////////////
   }

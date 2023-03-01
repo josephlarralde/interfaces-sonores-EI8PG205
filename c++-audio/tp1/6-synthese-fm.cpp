@@ -27,10 +27,11 @@ int main(int argc, char* argv[]) {
   Oscillator modulator(sampleRate);
 
   for (int i = 0; i < af.getNumSamplesPerChannel(); i++) {
-    // SOLUTION //////////////////////////////////////////
+    // TODO //////////////////////////////////////////////
 
-    float s = carrier.getNextValue(fc + mi * fm * modulator.getNextValue(fm));
-    af.samples[0][i] = amplitude * s;
+    // ...
+    
+    // af.samples[0][i] = ???
 
     //////////////////////////////////////////////////////
   }
